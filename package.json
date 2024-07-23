@@ -1,0 +1,27 @@
+{
+  "name": "invoice-generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "build": "echo 'This app does not require a build step'",
+    "deploy": "netlify deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
+    "netlify-cli": "^17.33.4",
+    "netlify-lambda": "^2.0.16",
+    "nodemon": "^3.1.4",
+    "serverless-http": "^3.2.0",
+    "uuid": "^10.0.0"
+  }
+}
