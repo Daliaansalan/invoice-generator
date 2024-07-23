@@ -267,6 +267,7 @@
               name="balanceDue"
               required
               placeholder="Enter Balance Due"
+              readonly
             />
           </div>
         </div>
@@ -280,5 +281,17 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      document.getElementById('paymentAmount').addEventListener('input', updateBalanceDue);
+      document.getElementById('paidAmount').addEventListener('input', updateBalanceDue);
+    
+      function updateBalanceDue() {
+        const paymentAmount = parseFloat(document.getElementById('paymentAmount').value) || 0;
+        const paidAmount = parseFloat(document.getElementById('paidAmount').value) || 0;
+        const balanceDue = paymentAmount - paidAmount;
+        document.getElementById('balanceDue').value = balanceDue.toFixed(2);
+      }
+    </script>
   </body>
 </html>

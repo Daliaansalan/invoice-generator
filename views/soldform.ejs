@@ -146,6 +146,7 @@
                     <option value="" >Select Category</option>
                     <option value="S">S</option>
                     <option value="N">N</option>
+                    <option value="No Category">No Category</option>
                 </select>
             </div>
             <div class="form-group col">
@@ -154,27 +155,57 @@
                     <option value="">Select Warranty</option>
                     <option value="3 months">3 Months</option>
                     <option value="6 months">6 Months</option>
+                    <option value="No warranty">No warranty</option>
                 </select>
             </div>
         </div>
-            <h2>Payment Details</h2>
-            <div class="row">
-            <div class="form-group col">
-                <label for="paymentAmount">Total Amount Paid:</label>
-                <input type="number" class="form-control" id="paymentAmount" name="paymentAmount" required placeholder="Enter Total Amount Paid">
-            </div>
-            <div class="form-group col">
-                <label for="paidAmount">Initial Amount Paid:</label>
-                <input type="number" class="form-control" id="paidAmount" name="paidAmount" required placeholder="Enter Initial Amount Paid">
-            </div>
-            <div class="form-group col">
-              <label for="roadTax">Road Tax:</label>
-              <input type="number" class="form-control" id="roadTax" name="roadTax" required placeholder="Enter Road Tax">
+        <h2>Payment Details</h2>
+        <div class="row">
+          <div class="form-group col">
+            <label for="paymentAmount">Total Amount Paid:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="paymentAmount"
+              name="paymentAmount"
+              required
+              placeholder="Enter Total Amount Paid"
+            />
           </div>
-            <div class="form-group col">
-                <label for="balanceDue">Balance Due:</label>
-                <input type="number" class="form-control" id="balanceDue" name="balanceDue" required placeholder="Enter Balance Due">
-            </div>
+          <div class="form-group col">
+            <label for="paidAmount">Initial Amount Paid:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="paidAmount"
+              name="paidAmount"
+              required
+              placeholder="Enter Initial Amount Paid"
+            />
+          </div>
+          <div class="form-group col">
+            <label for="roadTax">Road Tax:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="roadTax"
+              name="roadTax"
+              required
+              placeholder="Enter Road Tax"
+            />
+          </div>
+          <div class="form-group col">
+            <label for="balanceDue">Balance Due:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="balanceDue"
+              name="balanceDue"
+              required
+              placeholder="Enter Balance Due"
+              readonly
+            />
+          </div>
         </div>
             <button type="submit" class="btn btn-warning btn-lg btn-block mb-4">Generate Invoice</button>
         </form>
@@ -183,6 +214,20 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      document.getElementById('paymentAmount').addEventListener('input', updateBalanceDue);
+      document.getElementById('paidAmount').addEventListener('input', updateBalanceDue);
+      document.getElementById('roadTax').addEventListener('input', updateBalanceDue);
+    
+      function updateBalanceDue() {
+        const paymentAmount = parseFloat(document.getElementById('paymentAmount').value) || 0;
+        const paidAmount = parseFloat(document.getElementById('paidAmount').value) || 0;
+        const roadTax = parseFloat(document.getElementById('roadTax').value) || 0;
+        const balanceDue = paymentAmount - paidAmount + roadTax;
+        document.getElementById('balanceDue').value = balanceDue.toFixed(2);
+      }
+    </script>
 </body>
 
 </html>
