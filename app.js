@@ -1,12 +1,54 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
+const session = require("express-session");
+require('dotenv').config();
+
+const secretKey = process.env.SESSION_SECRET || 'default-secret-key';
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
+
+app.use(session({
+  secret: secretKey,
+  resave: false,
+  saveUninitialized: true
+}));
+
+app.use((req, res, next) => {
+  if (!req.session.loggedIn && req.path !== '/login' && req.path !== '/logout') {
+    res.redirect('/login');
+  } else {
+    next();
+  }
+});
+
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+app.post("/login", (req, res) => {
+  const { username, password } = req.body;
+
+  if (username === "Mallumechanic_Admin" && password === "malluadmin2018") {
+    req.session.loggedIn = true;
+    res.redirect("/");
+  } else {
+    res.send("Invalid username or password");
+  }
+});
+
+app.get("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return res.redirect("/");
+    }
+    res.redirect("/login");
+  });
+});
 
 app.get("/", (req, res) => {
   res.render("index");

@@ -52,6 +52,13 @@
         align-items: center;
         min-height: 80vh; /* Adjust this value as needed */
       }
+      .logout-item {
+        background-color: #dc3545; /* Red background for logout */
+        color: white;
+      }
+      .logout-item:hover {
+        background-color: #a71d2a; /* Darker red on hover */
+      }
     </style>
   </head>
   <body oncontextmenu="return false;">
@@ -90,14 +97,19 @@
           <a class="dropdown-item custom-dropdown-item" href="/Sold"
             >Sold Out Invoice Generator</a
           >
+          <a
+            class="dropdown-item custom-dropdown-item logout-item"
+            href="/logout"
+            >Logout</a
+          >
         </div>
       </div>
     </nav>
     <div class="container mt-5">
-    <div class="d-flex justify-content-between align-items-center">
-        <h2 style="visibility: hidden;">Customer Details</h2>
+      <div class="d-flex justify-content-between align-items-center">
+        <h2 style="visibility: hidden">Customer Details</h2>
         <a href="/" class="btn btn-secondary">Back</a>
-    </div>
+      </div>
     </div>
     <!-- Centered iFrame -->
     <div class="iframe-container">
