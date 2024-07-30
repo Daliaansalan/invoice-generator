@@ -12,6 +12,7 @@
     <style>
       .login-container {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
@@ -25,10 +26,21 @@
         border: 1px solid #ced4da;
         border-radius: 5px;
       }
+      .logo {
+        margin-bottom: 20px;
+      }
+      .logo img {
+        width: 150px; /* Adjust the width as needed */
+      }
     </style>
   </head>
-  <body>
+  <body oncontextmenu="return false;">
     <div class="login-container">
+      <div class="logo">
+        <a class="navbar-brand" href="/">
+          <img src="assets/images/Invoice/favicon.png" alt="Logo" />
+        </a>
+      </div>
       <form class="login-form" action="/login" method="POST">
         <h2 class="text-center">Login</h2>
         <div class="form-group">
