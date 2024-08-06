@@ -101,6 +101,7 @@
         <a href="/" class="btn btn-secondary">Back</a>
       </div>
         <form action="/soldout-invoice" method="POST">
+
             <div class="row">
             <div class="form-group col">
                 <label for="customerName">Name:</label>
@@ -129,6 +130,16 @@
         </div>
             <h2>Car Details</h2>
             <div class="row">
+              <div class="form-group col">
+                  <label for="paymentDate">Date of Booking:</label>
+                  <input type="date" class="form-control" id="paymentDate" name="paymentDate" required placeholder="Enter Date of Booking">
+              </div>
+              <div class="form-group col">
+                <label for="soldDate">Date of Sold:</label>
+                <input type="date" class="form-control" id="soldDate" name="soldDate" required placeholder="Enter Date of sold">
+            </div>
+          </div>
+            <div class="row">
             <div class="form-group col">
                 <label for="carName">Car Name:</label>
                 <input type="text" class="form-control" id="carName" name="carName" required placeholder="Enter Car Name">
@@ -141,7 +152,7 @@
         <div class="row">
             <div class="form-group col">
                 <label for="carMiles">Miles:</label>
-                <input type="text" class="form-control" id="carMiles" name="carMiles" required placeholder="Enter Miles">
+                <input type="number" class="form-control" id="carMiles" name="carMiles" required placeholder="Enter Miles">
             </div>
             <div class="form-group col">
                 <label for="carYear">Model Year:</label>
@@ -171,7 +182,7 @@
         <h2>Payment Details</h2>
         <div class="row">
           <div class="form-group col">
-            <label for="paymentAmount">Total Amount Paid:</label>
+            <label for="paymentAmount">Total Amount:</label>
             <input
               type="number"
               class="form-control"
@@ -190,6 +201,17 @@
               name="paidAmount"
               required
               placeholder="Enter Initial Amount Paid"
+            />
+          </div>
+          <div class="form-group col">
+            <label for="fullAmount">Balance Amount paid:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="fullAmount"
+              name="fullAmount"
+              required
+              placeholder="Enter Balance Amount Paid"
             />
           </div>
           <div class="form-group col">
@@ -216,6 +238,7 @@
             />
           </div>
         </div>
+        
             <button type="submit" class="btn btn-warning btn-lg btn-block mb-4">Generate Invoice</button>
         </form>
     </div>
@@ -227,14 +250,18 @@
     <script>
       document.getElementById('paymentAmount').addEventListener('input', updateBalanceDue);
       document.getElementById('paidAmount').addEventListener('input', updateBalanceDue);
+      document.getElementById('fullAmount').addEventListener('input', updateBalanceDue);
       document.getElementById('roadTax').addEventListener('input', updateBalanceDue);
     
       function updateBalanceDue() {
         const paymentAmount = parseFloat(document.getElementById('paymentAmount').value) || 0;
         const paidAmount = parseFloat(document.getElementById('paidAmount').value) || 0;
+        const fullAmount = parseFloat(document.getElementById('fullAmount').value) || 0;
         const roadTax = parseFloat(document.getElementById('roadTax').value) || 0;
-        const balanceDue = paymentAmount - paidAmount + roadTax;
-        document.getElementById('balanceDue').value = balanceDue.toFixed(2);
+        const totalPaid = paidAmount + fullAmount + roadTax;
+        const balanceDue = paymentAmount - totalPaid;
+
+        document.getElementById('balanceDue').value = balanceDue > 0 ? balanceDue.toFixed(2) : '0.00';
       }
     </script>
 </body>

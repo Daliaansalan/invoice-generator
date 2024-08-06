@@ -52,10 +52,7 @@
                         <div class="invoice-owner-conte-wrap pt-40">
                             <div class="invo-pay-to-wrap width-30">
                                 <div class="">
-                                    <!-- <div class="invo-head-wrap invo-head-wrap-hospital">
-                                        <div class="color-light-black font-md">Invoice No:</div>
-                                        <div class="font-md-grey color-grey ">#<%= Date.now() %></div>
-                                    </div> -->
+
                                     <div class="invo-head-wrap invo-head-wrap-hospital">
                                         <div class="color-light-black font-md">Invoice Date:</div>
                                         <div class="font-md-grey color-grey "><%= new Date().toLocaleDateString() %></div>
@@ -190,17 +187,7 @@
                         </div>
                         
                     </div>
-                    <!--Print-download content end here -->
-                    <!--Note content start -->
-                    <!-- <div class="invo-note-wrap">
-                        <div class="note-title">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_8_240)"><path d="M14 3V7C14 7.26522 14.1054 7.51957 14.2929 7.70711C14.4804 7.89464 14.7348 8 15 8H19" stroke="#12151C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 21H7C6.46957 21 5.96086 20.7893 5.58579 20.4142C5.21071 20.0391 5 19.5304 5 19V5C5 4.46957 5.21071 3.96086 5.58579 3.58579C5.96086 3.21071 6.46957 3 7 3H14L19 8V19C19 19.5304 18.7893 20.0391 18.4142 20.4142C18.0391 20.7893 17.5304 21 17 21Z" stroke="#12151C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 7H10" stroke="#12151C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 13H15" stroke="#12151C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 17H15" stroke="#12151C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="clip0_8_240"><rect width="24" height="24" fill="white"/>
-                            </clipPath></defs></svg>
-                            <span class="font-md color-light-black">Note:</span>
-                        </div>
-                        <h3 class="font-md-grey color-grey note-desc">This is computer generated receipt and does not require physical signature.</h3>
-                    </div> -->
-                    <!--Note content end -->
+
                 </section>
             </div>
         </div>
@@ -213,7 +200,7 @@
  document.getElementById('download-btn').addEventListener('click', function() {
     const customerName = '<%= invoiceData.customerName %>'; // Replace this with the actual variable that holds the customer's name
     const element = document.getElementById('download_section');
-    const fileName = `booking_confirmation(${customerName}).pdf`;
+    const fileName = `booking confirmation(${customerName}) - MalluMechanic.pdf`;
 
     html2pdf().from(element).set({
         margin:       0,

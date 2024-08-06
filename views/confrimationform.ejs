@@ -103,6 +103,7 @@
         <a href="/" class="btn btn-secondary">Back</a>
       </div>
       <form action="/confrimation-invoice" method="POST">
+
         <div class="row">
           <div class="form-group col">
             <label for="customerName">Name:</label>
@@ -167,6 +168,12 @@
         <h2>Car Details</h2>
         <div class="row">
           <div class="form-group col">
+              <label for="paymentDate">Date of Booking:</label>
+              <input type="date" class="form-control" id="paymentDate" name="paymentDate" required placeholder="Enter Date of Booking">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col">
             <label for="carName">Car Name:</label>
             <input
               type="text"
@@ -193,7 +200,7 @@
           <div class="form-group col">
             <label for="carMiles">Miles:</label>
             <input
-              type="text"
+              type="number"
               class="form-control"
               id="carMiles"
               name="carMiles"
