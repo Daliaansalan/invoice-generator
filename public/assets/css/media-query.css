@@ -585,7 +585,20 @@
         width: auto;
     }
     .hospital-green-box {
-        display: none;
+        /* display: none; */
+        display: flex;
+        align-items: center;
+        padding: 0 16px 20px 16px;
+        justify-content: center;
+        height: 183px;
+        width: 105%;
+        border-radius: 5%;
+    }
+    .hospital-second {
+        /* width: 30%; */
+        /* position: absolute; */
+        right: 50px;
+        /* top: -100px; */
     }
     .movie-details-wrap {
         display: block;
@@ -1085,12 +1098,69 @@
 }
 
 @media (max-width: 575px) {
-    .invoice-table {
+    /* .invoice-table {
         width: 100%;
         caption-side: bottom;
         border-collapse: collapse;
         min-width: 500px;
+    } */
+
+    
+    .table-style2 tr:first-child th, .table-style2 tr:first-child td {
+        padding-top: 15px;
+        font-size: 16px;
     }
+
+    .table-stripe4 th:first-child, .table-stripe4 td:first-child {
+        border-left: 1px solid #e0e0e0;
+    }
+    .table-stripe4 th:nth-last-child(-n+3), .table-stripe4 th:first-child, .table-stripe4 td:nth-last-child(-n+3), .table-stripe4 td:first-child {
+        width: unset;
+        text-align: left;
+    }
+    .invoice-table th:first-child, .invoice-table td:first-child {
+        width: 56px;
+    }
+    .table-stripe4 th, .table-stripe4 td {
+        border-right: 1px solid #e0e0e0;
+    }
+    .invoice-table th, .invoice-table td {
+        /* padding: 13px 20px; */
+        /* border: none; */
+    }
+    .invoice-table td {
+        /* padding: 20px 0; */
+        /* padding: 13px 20px; */
+    }
+    /* .invoice-table {
+        border: none;
+        margin-bottom: 25px;
+    } */
+    table {
+        margin: 0 0 1.5em;
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid var(--border-color);
+    }
+    .invoice-table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 750px;
+        /* margin: 0 auto; */
+        white-space: nowrap;
+        border: none;
+        margin-bottom: 25px;
+        
+    }
+    .company-address p{
+        font-size: 10px;
+    }
+    p {
+        font-size: 10px;
+        line-height: 1.571;
+    }
+    
     .table-wrapper.agency-service-table,
     .table-wrapper {
         overflow-x: auto;
@@ -1119,8 +1189,20 @@
         padding: 30px 20px;
     }
     .container {
-        padding: 0 20px;
+        /* padding: 0 20px; */
+        max-width: 850px;
+    margin: 0 auto;
+    /* padding: 0 50px; */
     }
+    .invoice-note {
+        border-top: 1px solid var(--border-color);
+        padding-top: 0px;
+        margin: 0px;
+    }
+    .invoice-note b {
+        margin-right: 5px;
+    }
+    
     .invo-to-wrap,
     .invo-pay-to-wrap {
         width: 100%;
@@ -1134,7 +1216,14 @@
         font-size: 16px;
     }
     .invoice-table td {
-        padding: 12px 0;
+        /* padding: 12px 0; */
+        /* padding: 13px 20px; */
+    }
+    ul {
+        /* border-bottom: 1px solid var(--border-color); */
+        padding-bottom: 0px;
+        font-size: 10px;
+        margin: 0px;
     }
     .invo-addition-wrap {
         display: flex;
@@ -1263,7 +1352,7 @@
         padding: 10px 4px 10px;
     }
     .hospital-table-wrap {
-        margin-top: 30px;
+        margin-top: 10px;
     }
     .payment-table-wrap {
         overflow-x: auto;
