@@ -2,16 +2,21 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const session = require("express-session");
+require('dotenv').config();
 
-
+const secretKey = process.env.SESSION_SECRET || 'default-secret-key';
 
 const app = express();
 
-app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 
+app.use(session({
+  secret: secretKey,
+  resave: false,
+  saveUninitialized: true
+}));
 
 app.use((req, res, next) => {
   if (!req.session.loggedIn && req.path !== '/login' && req.path !== '/logout') {
@@ -20,8 +25,6 @@ app.use((req, res, next) => {
     next();
   }
 });
-
-
 
 app.get("/login", (req, res) => {
   res.render("login");
@@ -76,8 +79,6 @@ app.get("/Customer-Details", (req, res) => {
 app.get("/Service-Details", (req, res) => {
   res.render("Servicedetails");
 });
-
-
 
 app.listen(3000, () => {
   console.log("Server is running on http://localhost:3000");
