@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="assets/images/favicon/icon.png" />
-    <title>Mallu Mechanic.UK Invoice</title>
+    <title>Mallu Mechanics.UK Invoice</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -90,8 +90,11 @@
           <a class="dropdown-item custom-dropdown-item" href="/Sold"
             >Sold Out Invoice Generator</a
           >
-          <a class="dropdown-item custom-dropdown-item logout-item" href="/logout"
-          >Logout</a>
+          <a
+            class="dropdown-item custom-dropdown-item logout-item"
+            href="/logout"
+            >Logout</a
+          >
         </div>
       </div>
     </nav>
@@ -103,7 +106,6 @@
         <a href="/" class="btn btn-secondary">Back</a>
       </div>
       <form action="/confrimation-invoice" method="POST">
-
         <div class="row">
           <div class="form-group col">
             <label for="customerName">Name:</label>
@@ -168,8 +170,15 @@
         <h2>Car Details</h2>
         <div class="row">
           <div class="form-group col">
-              <label for="paymentDate">Date of Booking:</label>
-              <input type="date" class="form-control" id="paymentDate" name="paymentDate" required placeholder="Enter Date of Booking">
+            <label for="paymentDate">Date of Booking:</label>
+            <input
+              type="date"
+              class="form-control"
+              id="paymentDate"
+              name="paymentDate"
+              required
+              placeholder="Enter Date of Booking"
+            />
           </div>
         </div>
         <div class="row">
@@ -234,7 +243,6 @@
               <option value="S">S</option>
               <option value="N">N</option>
               <option value="No Category">No Category</option>
-
             </select>
           </div>
           <div class="form-group col">
@@ -249,7 +257,6 @@
               <option value="3 months">3 Months</option>
               <option value="6 months">6 Months</option>
               <option value="No warranty">No warranty</option>
-
             </select>
           </div>
         </div>
@@ -303,14 +310,20 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-      document.getElementById('paymentAmount').addEventListener('input', updateBalanceDue);
-      document.getElementById('paidAmount').addEventListener('input', updateBalanceDue);
-    
+      document
+        .getElementById("paymentAmount")
+        .addEventListener("input", updateBalanceDue);
+      document
+        .getElementById("paidAmount")
+        .addEventListener("input", updateBalanceDue);
+
       function updateBalanceDue() {
-        const paymentAmount = parseFloat(document.getElementById('paymentAmount').value) || 0;
-        const paidAmount = parseFloat(document.getElementById('paidAmount').value) || 0;
+        const paymentAmount =
+          parseFloat(document.getElementById("paymentAmount").value) || 0;
+        const paidAmount =
+          parseFloat(document.getElementById("paidAmount").value) || 0;
         const balanceDue = paymentAmount - paidAmount;
-        document.getElementById('balanceDue').value = balanceDue.toFixed(2);
+        document.getElementById("balanceDue").value = balanceDue.toFixed(2);
       }
     </script>
   </body>

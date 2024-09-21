@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Checker</title>
+</head>
+<body>
+    <h2>Service Eligibility Checker</h2>
+    <form action="/check-service" method="POST">
+        <label for="carNumber">Car Number:</label>
+        <input type="text" id="carNumber" name="carNumber" required>
+
+        <label for="currentMiles">Current Miles:</label>
+        <input type="number" id="currentMiles" name="currentMiles" required>
+
+        <button type="submit">Check Eligibility</button>
+    </form>
+
+    <% if (typeof message !== 'undefined') { %>
+        <p><strong><%= message %></strong></p>
+        <% if (typeof serviceDate !== 'undefined') { %>
+            <p>Service Date: <%= serviceDate %></p>
+        <% } %>
+    <% } %>
+</body>
+</html>
